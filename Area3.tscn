@@ -1,12 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bykgdqmshthju"]
+[gd_scene load_steps=6 format=3 uid="uid://cnaseydlxqqt7"]
 
-[ext_resource type="Script" path="res://area_propreties.gd" id="1_uwx37"]
-[ext_resource type="PackedScene" uid="uid://be652fgncrm21" path="res://Player.tscn" id="2_rfmqo"]
-[ext_resource type="Texture2D" uid="uid://csakoage4bnno" path="res://ptsm_ground_placeholder.png" id="3_tkamf"]
-[ext_resource type="PackedScene" uid="uid://cqhumpx8wvpbr" path="res://Transition.tscn" id="4_jd424"]
+[ext_resource type="Script" path="res://area_propreties.gd" id="1_n1pic"]
+[ext_resource type="Texture2D" uid="uid://csakoage4bnno" path="res://ptsm_ground_placeholder.png" id="2_ylw37"]
+[ext_resource type="PackedScene" uid="uid://be652fgncrm21" path="res://Player.tscn" id="3_sowea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qg83o"]
-texture = ExtResource("3_tkamf")
+texture = ExtResource("2_ylw37")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -159,7 +158,9 @@ sources/1 = SubResource("TileSetAtlasSource_qg83o")
 [node name="Area" type="Node2D"]
 
 [node name="AreaPropreties" type="Node2D" parent="."]
-script = ExtResource("1_uwx37")
+script = ExtResource("1_n1pic")
+Name = "Debugger's Forest"
+Song = "res://Music/temp.mp3"
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -176,10 +177,6 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(196620, 655361, 4, 262156, 655361, 5, 327692, 655361, 6, 196621, 720897, 4, 262157, 720897, 5, 327693, 720897, 6, 196622, 786433, 4, 262158, 786433, 5, 327694, 786433, 6, 196623, 851969, 4, 262159, 851969, 5, 327695, 851969, 6, 393229, 720897, 7, 393230, 786433, 7)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_rfmqo")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_sowea")]
 y_sort_enabled = true
 position = Vector2(60, 88)
-
-[node name="Transition" parent="." instance=ExtResource("4_jd424")]
-position = Vector2(248, 400)
-scale = Vector2(4, 1)

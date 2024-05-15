@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd2ikoleb6jxn"]
+[gd_scene load_steps=4 format=3 uid="uid://cd2ikoleb6jxn"]
 
 [ext_resource type="FontFile" uid="uid://doxpjppilrvgp" path="res://Pixellari.ttf" id="1_r1835"]
+[ext_resource type="Script" path="res://label.gd" id="2_7qx4m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_coeaf"]
 font = ExtResource("1_r1835")
@@ -28,3 +29,9 @@ offset_right = 540.0
 offset_bottom = 72.0
 text = "Debugger's Forest"
 label_settings = SubResource("LabelSettings_coeaf")
+script = ExtResource("2_7qx4m")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Label"]
+one_shot = true
+
+[connection signal="timeout" from="CanvasLayer/Label/Timer" to="CanvasLayer/Label" method="_on_timer_timeout"]

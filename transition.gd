@@ -4,6 +4,9 @@ extends Node2D
 @export var to = "res://Area2.tscn"
 var transitioning = false
 
+func _ready():
+	visible = false
+
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerArea":
 		transitioning = true
