@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd2ikoleb6jxn"]
+
+[ext_resource type="FontFile" uid="uid://doxpjppilrvgp" path="res://Pixellari.ttf" id="1_r1835"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_coeaf"]
+font = ExtResource("1_r1835")
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.717647)
+shadow_offset = Vector2(8, 8)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 540.0
+offset_bottom = 72.0
+text = "Debugger's Forest"
+label_settings = SubResource("LabelSettings_coeaf")

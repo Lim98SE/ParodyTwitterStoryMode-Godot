@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxem784theqbi"]
+
+[ext_resource type="Texture2D" uid="uid://mksc80ihlrf3" path="res://balck.png" id="1_0bfbt"]
+[ext_resource type="Script" path="res://fade.gd" id="1_018nu"]
+
+[node name="Fade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_018nu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = 999
+z_as_relative = false
+position = Vector2(480, 368)
+scale = Vector2(30, 23)
+texture = ExtResource("1_0bfbt")

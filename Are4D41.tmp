@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bykgdqmshthju"]
+
+[ext_resource type="Script" path="res://area_propreties.gd" id="1_uwx37"]
+[ext_resource type="PackedScene" uid="uid://be652fgncrm21" path="res://Player.tscn" id="2_rfmqo"]
+
+[node name="Area" type="Node2D"]
+
+[node name="AreaPropreties" type="Node2D" parent="."]
+script = ExtResource("1_uwx37")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_rfmqo")]
+position = Vector2(60, 88)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, -2)
+format = 2
