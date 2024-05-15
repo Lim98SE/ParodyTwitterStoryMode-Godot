@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d35ntoselpk8c"]
+
+[ext_resource type="Texture2D" uid="uid://ddnfql83iq52s" path="res://ptsm_ts_mask.png" id="1_eedmr"]
+[ext_resource type="Texture2D" uid="uid://cmw57fgdk2e1q" path="res://ptsm_title.png" id="2_h83xp"]
+
+[node name="Area" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Mask" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("1_eedmr")
+centered = false
+flip_v = true
+
+[node name="Logo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(468, 58)
+texture = ExtResource("2_h83xp")
+centered = false
