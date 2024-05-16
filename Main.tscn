@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr44irufw3otr"]
+[gd_scene load_steps=6 format=3 uid="uid://cr44irufw3otr"]
 
 [ext_resource type="Script" path="res://music.gd" id="1_4p8s6"]
 [ext_resource type="Script" path="res://Root.gd" id="1_10qhb"]
+[ext_resource type="PackedScene" uid="uid://dipi2c7s1hhby" path="res://Dialog.tscn" id="2_vypwo"]
 [ext_resource type="PackedScene" uid="uid://cd2ikoleb6jxn" path="res://UI.tscn" id="4_hi3r4"]
 [ext_resource type="PackedScene" uid="uid://cxem784theqbi" path="res://Fade.tscn" id="4_vnkjc"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_10qhb")
+
+[node name="Dialog" parent="." instance=ExtResource("2_vypwo")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 autoplay = true
@@ -15,3 +18,5 @@ script = ExtResource("1_4p8s6")
 [node name="UI" parent="." instance=ExtResource("4_hi3r4")]
 
 [node name="Fade" parent="." instance=ExtResource("4_vnkjc")]
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

@@ -1,0 +1,18 @@
+tree|0|flowey|reader
+flowey|Hi!
+reader|Fuck you
+sfx|vineboom
+flowey|:(
+prompt|Continue?|Yes|No
+endtree|0
+tree|1|flowey|reader
+reader|That's right.
+reader|Fuck you
+sfx|vineboom
+flowey|:(((
+flowey|[Flowey will remember that.]
+endtree|1
+tree|2|flowey|reader
+reader|Lmao it was a prank bro
+flowey|WHYYYYY
+endtree|2

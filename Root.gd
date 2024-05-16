@@ -5,6 +5,7 @@ var name_tweening = false
 @onready var name_label = $UI/CanvasLayer/Label
 
 func load_scene(arg):
+	print(get_children())
 	if get_node_or_null("Area") != null:
 		remove_child($Area)
 	
@@ -16,6 +17,12 @@ func load_scene(arg):
 		print(arg, " does not exist")
 	
 	$Fade.fadeOut()
+
+func change_song(path):
+	$Music.stop()
+	$Music.currentpath = path
+	$Music.stream = load(path)
+	$Music.play()
 
 func _ready():
 	name_label.position.y = -100
@@ -34,3 +41,6 @@ func _process(delta):
 				var tween = create_tween()
 				tween.tween_property(name_label, "position", Vector2(8, 8), 1).set_trans(Tween.TRANS_QUAD)
 				tween.tween_callback(done_tweening)
+
+func _on_music_finished():
+	$Music.play()

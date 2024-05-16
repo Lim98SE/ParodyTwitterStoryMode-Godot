@@ -6,7 +6,4 @@ extends Node2D
 
 func _ready():
 	if $"../../Music".stream == null or $"../../Music".currentpath != Song:
-		$"../../Music".stop()
-		$"../../Music".stream = load(Song)
-		$"../../Music".currentpath = Song
-		$"../../Music".play()
+		$"../../".change_song(Song)

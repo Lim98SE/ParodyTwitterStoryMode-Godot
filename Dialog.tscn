@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://dipi2c7s1hhby"]
+
+[ext_resource type="Texture2D" uid="uid://r5dskiqv3eb7" path="res://Images/ptsm_dialog.png" id="1_1kfkt"]
+[ext_resource type="Script" path="res://dialog.gd" id="1_miqyq"]
+[ext_resource type="FontFile" uid="uid://doxpjppilrvgp" path="res://Pixellari.ttf" id="2_77jh3"]
+[ext_resource type="Texture2D" uid="uid://dfyam84dxskbm" path="res://Images/Talk Sprites/FLOWEY_Closed.png" id="3_xjya4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybek8"]
+font = ExtResource("2_77jh3")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.243137)
+shadow_offset = Vector2(2, 2)
+
+[node name="Dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+
+[node name="Dialog" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 432.0
+offset_right = 56.0
+offset_bottom = 472.0
+script = ExtResource("1_miqyq")
+
+[node name="Box" type="Sprite2D" parent="CanvasLayer/Dialog"]
+position = Vector2(-16, 0)
+texture = ExtResource("1_1kfkt")
+centered = false
+offset = Vector2(32, 0)
+
+[node name="Text" type="Label" parent="CanvasLayer/Dialog/Box"]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 912.0
+offset_bottom = 240.0
+text = "I’ve come to make an announcement: Shadow the Hedgehog’s a bitch ass mother fucker. He pissed on my fucking wife. That’s right, he took his hedgehog fuckin' quilly dick out and he pissed on my fucking wife, and he said his dick was THIS BIG. And I said “that’s disgusting!” So I’m making a callout post on my twitter dot com: \"Shadow the Hedgehog, you got a small dick, it’s the size of this walnut except WAY smaller.\" And guess what, here’s what my dong looks like: PFFFFFFFFGJT. That’s right baby. All point, no quills, no pillows, look at that it looks like two balls and a bong. He fucked my wife so guess what, I’m gonna FUCK THE EARTH. THATS RIGHT THIS IS WHAT YOU GET, MY SUPER LAZER PISS. Except I’m not gonna piss on the earth, I’m gonna go higher. I’m pissing on the MOOOOOON! How do you like that, OBAMA? I PISSED ON THE MOON, YOU IDIOT! You have twenty-three hours before the piss d r o p l e t s hit the fucking earth, now get out of my fucking sight before I piss on you too! "
+label_settings = SubResource("LabelSettings_ybek8")
+autowrap_mode = 2
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="TS1" type="Sprite2D" parent="CanvasLayer/Dialog/Box"]
+position = Vector2(144, -96)
+texture = ExtResource("3_xjya4")
