@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0uihpvnyvh0a"
-path="res://.godot/imported/image.png-1457619c8f266a2bc183520c70ceee10.ctex"
+uid="uid://cpedn73pi7shd"
+path="res://.godot/imported/ptsm_title_mask.png-47741dd848385ca4fca8b0ca3218e0da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Titles/image.png"
-dest_files=["res://.godot/imported/image.png-1457619c8f266a2bc183520c70ceee10.ctex"]
+source_file="res://ptsm_title_mask.png"
+dest_files=["res://.godot/imported/ptsm_title_mask.png-47741dd848385ca4fca8b0ca3218e0da.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bakc5mio0w6vp"
-path="res://.godot/imported/MemeMaster.png-5a9852bbd6790c9c369f02cbb62be417.ctex"
+uid="uid://dg3qp75ya58sv"
+path="res://.godot/imported/TITLE NUMBER THREE.png-83e7cc1e85965c76bd8355942848514f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Titles/MemeMaster.png"
-dest_files=["res://.godot/imported/MemeMaster.png-5a9852bbd6790c9c369f02cbb62be417.ctex"]
+source_file="res://Titles/TITLE NUMBER THREE.png"
+dest_files=["res://.godot/imported/TITLE NUMBER THREE.png-83e7cc1e85965c76bd8355942848514f.ctex"]
 
 [params]
 

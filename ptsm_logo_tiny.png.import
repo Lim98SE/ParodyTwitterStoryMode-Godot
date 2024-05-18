@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bexvi6vked2wa"
-path="res://.godot/imported/MichaelDoesStuff.png-d687143354cf89f5f954d649706c392d.ctex"
+uid="uid://d3ptu15a232ik"
+path="res://.godot/imported/ptsm_logo_tiny.png-4872f7a003cce9a0f9928b8d5419e6a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Titles/MichaelDoesStuff.png"
-dest_files=["res://.godot/imported/MichaelDoesStuff.png-d687143354cf89f5f954d649706c392d.ctex"]
+source_file="res://ptsm_logo_tiny.png"
+dest_files=["res://.godot/imported/ptsm_logo_tiny.png-4872f7a003cce9a0f9928b8d5419e6a6.ctex"]
 
 [params]
 

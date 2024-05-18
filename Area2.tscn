@@ -160,6 +160,7 @@ sources/1 = SubResource("TileSetAtlasSource_qg83o")
 
 [node name="AreaPropreties" type="Node2D" parent="."]
 script = ExtResource("1_n1pic")
+Size = Vector2(960, 1280)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

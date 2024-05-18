@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 15000
+var speed = 10000
 @onready var propreties = $"../AreaPropreties"
 
 func _ready():

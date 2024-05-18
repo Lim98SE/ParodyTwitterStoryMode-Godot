@@ -24,3 +24,7 @@ func randomize_image():
 func _ready():
 	
 	randomize_image()
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		randomize_image()

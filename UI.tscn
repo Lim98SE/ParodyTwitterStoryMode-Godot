@@ -5,7 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_coeaf"]
 font = ExtResource("1_r1835")
-font_size = 64
+font_size = 32
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 4
@@ -32,6 +32,7 @@ label_settings = SubResource("LabelSettings_coeaf")
 script = ExtResource("2_7qx4m")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Label"]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="CanvasLayer/Label/Timer" to="CanvasLayer/Label" method="_on_timer_timeout"]

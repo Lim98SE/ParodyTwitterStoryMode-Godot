@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bouxivq5n4ppg"
-path="res://.godot/imported/Blue.jpg-c6f37ccbb90a135515906ba644f4fa6d.ctex"
+uid="uid://hguqcw50clsv"
+path="res://.godot/imported/Titelloses_42_20240519012348.png-7b1726798379f2dafd8e068ccde0a8c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Titles/Blue.jpg"
-dest_files=["res://.godot/imported/Blue.jpg-c6f37ccbb90a135515906ba644f4fa6d.ctex"]
+source_file="res://Titles/Titelloses_42_20240519012348.png"
+dest_files=["res://.godot/imported/Titelloses_42_20240519012348.png-7b1726798379f2dafd8e068ccde0a8c6.ctex"]
 
 [params]
 
