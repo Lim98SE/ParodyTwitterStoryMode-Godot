@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://buipylflmsudi"]
+
+[ext_resource type="Script" path="res://area_propreties.gd" id="1_a3vso"]
+[ext_resource type="Script" path="res://battle_handler.gd" id="3_drh3b"]
+[ext_resource type="PackedScene" uid="uid://cjlglyuwew78f" path="res://Player_Battle.tscn" id="4_dfmmc"]
+[ext_resource type="AudioStream" uid="uid://c7gdmpwhqyniy" path="res://SFX/laserShoot(2).wav" id="4_jyot6"]
+[ext_resource type="Script" path="res://buddy_manager.gd" id="5_7uq7k"]
+[ext_resource type="PackedScene" uid="uid://0xgmhgxe4cj" path="res://pathfind_enemy.tscn" id="6_3qjk5"]
+
+[node name="Area" type="Node2D"]
+
+[node name="AreaPropreties" type="Node2D" parent="."]
+script = ExtResource("1_a3vso")
+Name = ""
+Size = Vector2(640, 360)
+Song = "res://Music/battle.mp3"
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="BattleHandler" type="Node2D" parent="."]
+script = ExtResource("3_drh3b")
+
+[node name="FireCooldown" type="Timer" parent="BattleHandler"]
+wait_time = 0.25
+one_shot = true
+
+[node name="PlayerFire" type="AudioStreamPlayer" parent="BattleHandler"]
+stream = ExtResource("4_jyot6")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_dfmmc")]
+position = Vector2(234, 203)
+
+[node name="BuddyManager" type="Node2D" parent="."]
+script = ExtResource("5_7uq7k")
+
+[node name="PathfindEnemy" parent="." instance=ExtResource("6_3qjk5")]

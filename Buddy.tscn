@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqeg4nwcpbf8w"]
+
+[node name="Buddy" type="Node2D"]
+
+[node name="actionCooldown" type="Timer" parent="."]
+one_shot = true

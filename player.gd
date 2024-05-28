@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
-var speed = 10000
-@onready var propreties = $"../AreaPropreties"
+var speed = 7500
+var damage = 25
+var moving = false
+
+var knockback = 200
+var health = 100
+
+var bullet = preload("res://Bullet.tscn")
 
 func _ready():
-	$Camera2D.limit_right = propreties.Size.x
-	$Camera2D.limit_bottom = propreties.Size.y
-
-var moving = false
+	position.x = get_viewport_rect().size.x / 2
+	position.y = (get_viewport_rect().size.y / 4) * 3
 
 func _physics_process(delta):
 	var xAxis = Input.get_axis("left", "right")
@@ -37,4 +41,21 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.frame = 0
 	
-	
+	if Input.is_action_pressed("fire") and $FireCooldown.time_left == 0:
+		var c_bullet = bullet.instantiate()
+		c_bullet.position = position
+		c_bullet.target = get_global_mouse_position()
+		c_bullet.damage = damage
+		$"../".add_child(c_bullet)
+		$FireCooldown.start()
+		$PlayerFire.play()
+
+func _on_player_area_area_entered(area):
+	if "bullet" in area.get_groups():
+		if area.from_enemy:
+			velocity += area.vec * knockback
+			move_and_slide()
+			area.queue_free()
+			health -= area.damage
+			$Hurt.play()
+	pass # Replace with function body.

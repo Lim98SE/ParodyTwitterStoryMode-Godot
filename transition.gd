@@ -18,4 +18,8 @@ func _process(delta):
 			print("Loading")
 			root.load_scene(to)
 			queue_free()
-		
+	
+	if Input.is_action_just_pressed("debug") and not transitioning:
+		to = "res://Battle.tscn"
+		transitioning = true
+		root.get_node("Fade").fadeIn()

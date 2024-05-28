@@ -3,6 +3,7 @@ extends Node2D
 var current_area = null
 var name_tweening = false
 @onready var name_label = $UI/CanvasLayer/Label
+@export var buddies = ["woz", "woz"]
 var fade = preload("res://Fade.tscn")
 
 func load_scene(arg):
@@ -28,7 +29,7 @@ func change_song(path):
 func _ready():
 	add_child(fade.instantiate())
 	name_label.position.y = -100
-	load_scene("res://MainMenu.tscn")
+	load_scene("res://Battle.tscn")
 
 func done_tweening():
 	name_label.get_node("Timer").start()

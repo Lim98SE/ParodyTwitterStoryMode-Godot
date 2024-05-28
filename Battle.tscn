@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://buipylflmsudi"]
+
+[ext_resource type="Script" path="res://area_propreties.gd" id="1_a3vso"]
+[ext_resource type="PackedScene" uid="uid://cjlglyuwew78f" path="res://Player_Battle.tscn" id="4_dfmmc"]
+[ext_resource type="Script" path="res://buddy_manager.gd" id="5_7uq7k"]
+[ext_resource type="AudioStream" uid="uid://cug36uptxuf0l" path="res://SFX/explosion(2).wav" id="5_hsy8p"]
+[ext_resource type="PackedScene" uid="uid://0xgmhgxe4cj" path="res://still_enemy.tscn" id="6_3qjk5"]
+
+[node name="Area" type="Node2D"]
+
+[node name="AreaPropreties" type="Node2D" parent="."]
+script = ExtResource("1_a3vso")
+Name = ""
+Size = Vector2(640, 360)
+Song = "res://Music/battle.mp3"
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_dfmmc")]
+position = Vector2(234, 203)
+
+[node name="BuddyManager" type="Node2D" parent="."]
+script = ExtResource("5_7uq7k")
+
+[node name="StillEnemy" parent="." instance=ExtResource("6_3qjk5")]
+position = Vector2(35, 30)
+
+[node name="StillEnemy2" parent="." instance=ExtResource("6_3qjk5")]
+position = Vector2(604, 28)
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hsy8p")
