@@ -22,7 +22,7 @@ size = Vector2(32, 32)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f4g7j"]
 size = Vector2(32, 4)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_qbni4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

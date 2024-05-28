@@ -45,8 +45,9 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.frame = 0
 	
-	if Input.is_action_pressed("fire") and $FireCooldown.time_left == 0 and enableFiring:
-		fire()
+	if enableFiring:
+		if Input.is_action_pressed("fire") and $FireCooldown.time_left == 0:
+			fire()
 
 func _on_player_area_area_entered(area):
 	if "bullet" in area.get_groups():
