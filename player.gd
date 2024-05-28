@@ -4,8 +4,12 @@ var speed = 7500
 var damage = 25
 var moving = false
 
+@export var enableFiring = false
+
 var knockback = 200
 var health = 100
+var maxhp = 100
+var bullets = 1
 
 var bullet = preload("res://Bullet.tscn")
 
@@ -41,14 +45,8 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.frame = 0
 	
-	if Input.is_action_pressed("fire") and $FireCooldown.time_left == 0:
-		var c_bullet = bullet.instantiate()
-		c_bullet.position = position
-		c_bullet.target = get_global_mouse_position()
-		c_bullet.damage = damage
-		$"../".add_child(c_bullet)
-		$FireCooldown.start()
-		$PlayerFire.play()
+	if Input.is_action_pressed("fire") and $FireCooldown.time_left == 0 and enableFiring:
+		fire()
 
 func _on_player_area_area_entered(area):
 	if "bullet" in area.get_groups():
@@ -59,3 +57,17 @@ func _on_player_area_area_entered(area):
 			health -= area.damage
 			$Hurt.play()
 	pass # Replace with function body.
+
+func fire():
+	var c_bullet
+		
+	for i in range(bullets):
+		c_bullet = bullet.instantiate()
+		c_bullet.position = position
+		c_bullet.target = get_global_mouse_position()
+		c_bullet.offset = i
+		c_bullet.damage = damage
+		$"../".add_child(c_bullet)
+		
+	$FireCooldown.start()
+	$PlayerFire.play()

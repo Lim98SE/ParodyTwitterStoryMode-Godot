@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://buipylflmsudi"]
+[gd_scene load_steps=11 format=3 uid="uid://buipylflmsudi"]
 
 [ext_resource type="Script" path="res://area_propreties.gd" id="1_a3vso"]
 [ext_resource type="PackedScene" uid="uid://cjlglyuwew78f" path="res://Player_Battle.tscn" id="4_dfmmc"]
 [ext_resource type="Script" path="res://buddy_manager.gd" id="5_7uq7k"]
 [ext_resource type="AudioStream" uid="uid://cug36uptxuf0l" path="res://SFX/explosion(2).wav" id="5_hsy8p"]
 [ext_resource type="PackedScene" uid="uid://0xgmhgxe4cj" path="res://still_enemy.tscn" id="6_3qjk5"]
+[ext_resource type="Script" path="res://healthbar.gd" id="6_7lygb"]
+[ext_resource type="Script" path="res://buddy_images.gd" id="6_y2mfn"]
+[ext_resource type="Texture2D" uid="uid://c6x5rjsox0l" path="res://Images/Buddies/peter.png" id="7_ufqsi"]
+[ext_resource type="Script" path="res://fadeOut.gd" id="8_nfy54"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jg45t"]
+size = Vector2(200, 8)
 
 [node name="Area" type="Node2D"]
 
@@ -19,6 +26,7 @@ format = 2
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_dfmmc")]
 position = Vector2(234, 203)
+enableFiring = true
 
 [node name="BuddyManager" type="Node2D" parent="."]
 script = ExtResource("5_7uq7k")
@@ -31,3 +39,39 @@ position = Vector2(604, 28)
 
 [node name="Die" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_hsy8p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_y2mfn")
+
+[node name="Healthbar" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(6, 348)
+texture = SubResource("PlaceholderTexture2D_jg45t")
+centered = false
+script = ExtResource("6_7lygb")
+
+[node name="ActiveBuddy" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(604, 308)
+texture = ExtResource("7_ufqsi")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ActiveBuddy"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -48.0
+offset_right = -32.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.482353)
+script = ExtResource("8_nfy54")
+
+[node name="PassiveBuddy" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(536, 308)
+texture = ExtResource("7_ufqsi")

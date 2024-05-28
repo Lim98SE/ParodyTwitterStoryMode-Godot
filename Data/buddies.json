@@ -1,1 +1,3 @@
-{"woz": {"name": "Scott the Woz", "avatar": "Images/Buddies/woz", "active": "Buddies/woz_active.gd", "passive": "Buddies/woz_passive.gd"}}
+{"peter": {"name": "Peter Griffin", "avatar": "Images/Buddies/peter.png", "active": "Buddies/peter_active.gd", "passive": "Buddies/peter_passive.gd"},
+"doomslayer": {"name": "Doom Slayer", "avatar": "Images/Buddies/doomslayer.png", "active": "Buddies/doomslayer_active.gd", "passive": "Buddies/doomslayer_passive.gd"},
+"engie": {"name": "Engineer", "avatar": "Images/Buddies/engie.png", "active": "Buddies/engie_active.gd", "passive": "Buddies/engie_passive.gd"}}

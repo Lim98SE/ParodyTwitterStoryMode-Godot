@@ -3,7 +3,7 @@ extends Node2D
 var current_area = null
 var name_tweening = false
 @onready var name_label = $UI/CanvasLayer/Label
-@export var buddies = ["woz", "woz"]
+@export var buddies = ["doomslayer", "peter"]
 var fade = preload("res://Fade.tscn")
 
 func load_scene(arg):
