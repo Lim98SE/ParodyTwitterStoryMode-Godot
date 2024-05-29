@@ -4,9 +4,10 @@ extends Node2D
 @onready var player = root.get_node("Area").get_node("CharacterBody2D")
 
 @export var speed = 60
-@export var fight_scene : PackedScene
+@export var fight_scenes : Array[PackedScene] = []
 @export var image : Texture2D
 @export var collision_box : Shape2D
+@export var range = 100
 
 func _ready():
 	if root.last_battle == name:
@@ -14,10 +15,10 @@ func _ready():
 		
 	$Sprite2D.texture = image
 	$Area2D/CollisionShape2D.shape = collision_box
-	root.battlescene = fight_scene
+	root.battlescene = fight_scenes.pick_random()
 
 func _process(delta):
-	if position.distance_to(player.position) < 64:
+	if position.distance_to(player.position) < range:
 		var direction = position.direction_to(player.position)
 		position += speed * direction * delta
 

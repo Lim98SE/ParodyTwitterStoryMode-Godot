@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://be652fgncrm21"]
+[gd_scene load_steps=25 format=3 uid="uid://be652fgncrm21"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_6aekp"]
 [ext_resource type="Texture2D" uid="uid://b1c3dfoc3ka3u" path="res://Images/Player/ptsm_player_down.png" id="2_0u562"]
@@ -141,8 +141,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl7kh"]
+size = Vector2(27, 49)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i0pc"]
-size = Vector2(32, 64)
+size = Vector2(27, 49)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_6aekp")
@@ -152,7 +155,8 @@ sprite_frames = SubResource("SpriteFrames_3wots")
 animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3i0pc")
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_xl7kh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
@@ -163,4 +167,5 @@ drag_vertical_enabled = true
 [node name="PlayerArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_3i0pc")

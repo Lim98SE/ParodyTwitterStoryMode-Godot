@@ -3,7 +3,7 @@ extends Node2D
 var current_area = null
 var name_tweening = false
 @onready var name_label = $UI/CanvasLayer/Label
-@export var buddies = ["engie", "noise"]
+@export var buddies = ["noise", "engie"]
 var battlescene = null
 var fade = preload("res://Fade.tscn")
 var previous

@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://buipylflmsudi"]
+[gd_scene load_steps=20 format=3 uid="uid://buipylflmsudi"]
 
 [ext_resource type="Script" path="res://area_propreties.gd" id="1_a3vso"]
 [ext_resource type="Script" path="res://battle.gd" id="1_t0rgo"]
+[ext_resource type="Texture2D" uid="uid://3nhomicmen3k" path="res://Images/player_bullet.png" id="3_1kwff"]
 [ext_resource type="PackedScene" uid="uid://cjlglyuwew78f" path="res://Player_Battle.tscn" id="4_dfmmc"]
+[ext_resource type="Texture2D" uid="uid://4345hruxdgxr" path="res://Images/noisebomb_00-export.png" id="4_oy3fj"]
 [ext_resource type="Script" path="res://buddy_manager.gd" id="5_7uq7k"]
 [ext_resource type="AudioStream" uid="uid://cug36uptxuf0l" path="res://SFX/explosion(2).wav" id="5_hsy8p"]
 [ext_resource type="Script" path="res://healthbar.gd" id="6_7lygb"]
@@ -12,6 +14,29 @@
 [ext_resource type="AudioStream" uid="uid://bhx7nh81bhucy" path="res://SFX/pickupCoin(1).wav" id="10_8xhhq"]
 [ext_resource type="FontFile" uid="uid://doxpjppilrvgp" path="res://Pixellari.ttf" id="12_vi15y"]
 [ext_resource type="AudioStream" uid="uid://cou8gttadbsf7" path="res://SFX/29-Act Cleared.mp3" id="13_pf1du"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vr4no"]
+texture = ExtResource("3_1kwff")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gd47w"]
+texture = ExtResource("4_oy3fj")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_efgek"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vr4no")
+sources/1 = SubResource("TileSetAtlasSource_gd47w")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jg45t"]
 size = Vector2(200, 8)
@@ -34,7 +59,9 @@ Size = Vector2(640, 360)
 Song = "res://Music/battle.mp3"
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_efgek")
 format = 2
+layer_0/tile_data = PackedInt32Array(65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, 327679, 1, 0, 393215, 1, 0, 458751, 1, 0, 524287, 1, 0, 589823, 1, 0, 655359, 1, 0, 720895, 1, 0, 786431, 1, 0, 851967, 1, 0, 917503, 1, 0, 983039, 1, 0, 1048575, 1, 0, 1114111, 1, 0, 1179647, 1, 0, 1245183, 1, 0, 1310719, 1, 0, 1376255, 1, 0, 1441791, 1, 0, 1507327, 1, 0, 1572863, 1, 0, 1507328, 1, 0, 1507329, 1, 0, 1507330, 1, 0, 1507331, 1, 0, 1507332, 1, 0, 1507333, 1, 0, 1507334, 1, 0, 1507335, 1, 0, 1507336, 1, 0, 1507337, 1, 0, 1507338, 1, 0, 1507339, 1, 0, 1507340, 1, 0, 1507341, 1, 0, 1507342, 1, 0, 1507343, 1, 0, 1507344, 1, 0, 1507345, 1, 0, 1507346, 1, 0, 1507347, 1, 0, 1507348, 1, 0, 1507349, 1, 0, 1507350, 1, 0, 1507351, 1, 0, 1507352, 1, 0, 1507353, 1, 0, 1507354, 1, 0, 1507355, 1, 0, 1507356, 1, 0, 1507357, 1, 0, 1507358, 1, 0, 1507359, 1, 0, 1507360, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1507364, 1, 0, 1507365, 1, 0, 1507366, 1, 0, 1507367, 1, 0, 1507368, 1, 0, 1441832, 1, 0, 1376296, 1, 0, 1310760, 1, 0, 1245224, 1, 0, 1179688, 1, 0, 1114152, 1, 0, 1048616, 1, 0, 983080, 1, 0, 917544, 1, 0, 852008, 1, 0, 786472, 1, 0, 720936, 1, 0, 655400, 1, 0, 589864, 1, 0, 524328, 1, 0, 458792, 1, 0, 393256, 1, 0, 327720, 1, 0, 262184, 1, 0, 196648, 1, 0, 131112, 1, 0, 65576, 1, 0, 40, 1, 0, -65496, 1, 0, -65497, 1, 0, -65498, 1, 0, -65499, 1, 0, -65500, 1, 0, -65501, 1, 0, -65502, 1, 0, -65503, 1, 0, -65504, 1, 0, -65505, 1, 0, -65506, 1, 0, -65507, 1, 0, -65508, 1, 0, -65509, 1, 0, -65510, 1, 0, -65511, 1, 0, -65512, 1, 0, -65513, 1, 0, -65514, 1, 0, -65515, 1, 0, -65516, 1, 0, -65517, 1, 0, -65518, 1, 0, -65519, 1, 0, -65520, 1, 0, -65521, 1, 0, -65522, 1, 0, -65523, 1, 0, -65524, 1, 0, -65525, 1, 0, -65526, 1, 0, -65527, 1, 0, -65528, 1, 0, -65529, 1, 0, -65530, 1, 0, -65531, 1, 0, -65532, 1, 0, -65533, 1, 0, -65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -1, 1, 0)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_dfmmc")]
 position = Vector2(234, 203)
