@@ -10,8 +10,14 @@ extends Node2D
 @export var range = 100
 
 func _ready():
-	if root.last_battle == name:
+	print(root.last_battle, " ", name)
+	
+	if name in root.last_battle:
+		print(name, " is in ", root.last_battle)
 		queue_free()
+	
+	else:
+		print(name, " is good")
 		
 	$Sprite2D.texture = image
 	$Area2D/CollisionShape2D.shape = collision_box
@@ -24,7 +30,7 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerArea":
-		root.last_battle = name
+		root.last_battle.append(name)
 		var transition = load("res://Transition.tscn").instantiate()
 		transition.to = "res://battle.tscn"
 		transition.instant_transition = true

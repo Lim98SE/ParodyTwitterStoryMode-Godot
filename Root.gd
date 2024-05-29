@@ -8,7 +8,7 @@ var battlescene = null
 var fade = preload("res://Fade.tscn")
 var previous
 var scene = null
-var last_battle = null
+var last_battle = []
 var player_position = null
 
 func load_scene(arg):

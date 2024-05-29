@@ -16,8 +16,7 @@ var bullet = preload("res://Bullet.tscn")
 
 func _ready():
 	if "battle" in $"..".name.to_lower():
-		position.x = 640 / 2
-		position.y = (360 / 4) * 3
+		pass
 	
 	else:
 		if root.player_position != null:

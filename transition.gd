@@ -25,6 +25,7 @@ func _process(delta):
 		if not root.get_node("Fade").fading:
 			if not instant_transition:
 				root.player_position = null
+				root.last_battle = []
 			print("Loading")
 			root.load_scene(to)
 			queue_free()
