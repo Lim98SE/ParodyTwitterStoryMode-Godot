@@ -4,8 +4,12 @@ extends Node2D
 @onready var player = root.get_node("Area").get_node("CharacterBody2D")
 
 var health = 25
+var max_health = 25
+@export var size = 8
 
 func _physics_process(delta):
+	$HealthBar.scale.x = (float(health) / float(max_health)) * size
+	
 	draw_circle(position, 62.5, Color.WHITE)
 	if health <= 0:
 		root.get_node("Area").get_node("Die").play()

@@ -4,5 +4,6 @@ extends Node
 @onready var player = root.get_node("Area").get_node("CharacterBody2D")
 
 func _ready():
-	player.get_node("FireCooldown").wait_time = 0.4
-	player.bullets = 3
+	player.speed = 10000
+	player.maxhp = 75
+	player.health = 75

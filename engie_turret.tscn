@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgqltugllklg7"]
+[gd_scene load_steps=5 format=3 uid="uid://dgqltugllklg7"]
 
 [ext_resource type="Script" path="res://turret.gd" id="1_f2kmt"]
 [ext_resource type="Texture2D" uid="uid://c7g5m4i03f6xp" path="res://Images/Buddies/dispenser.png" id="2_cp7ld"]
+[ext_resource type="Texture2D" uid="uid://c5gdn2wtv20m0" path="res://Images/hpbar.png" id="3_ddnpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf51v"]
 size = Vector2(64, 91)
@@ -20,5 +21,10 @@ position = Vector2(-2, -6)
 shape = SubResource("RectangleShape2D_mf51v")
 
 [node name="Hurt" type="AudioStreamPlayer" parent="."]
+
+[node name="HealthBar" type="Sprite2D" parent="."]
+position = Vector2(-2, -59)
+scale = Vector2(8, 1)
+texture = ExtResource("3_ddnpx")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

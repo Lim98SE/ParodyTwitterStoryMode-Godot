@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cou8gttadbsf7"
+path="res://.godot/imported/29-Act Cleared.mp3-a5457b2026b1d682a9c2844fa1e66cfa.mp3str"
+
+[deps]
+
+source_file="res://SFX/29-Act Cleared.mp3"
+dest_files=["res://.godot/imported/29-Act Cleared.mp3-a5457b2026b1d682a9c2844fa1e66cfa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

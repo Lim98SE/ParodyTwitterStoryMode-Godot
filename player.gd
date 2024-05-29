@@ -5,6 +5,7 @@ var damage = 25
 var moving = false
 
 @export var enableFiring = false
+@onready var root = get_tree().root.get_child(0)
 
 var knockback = 200
 var health = 100
@@ -14,8 +15,13 @@ var bullets = 1
 var bullet = preload("res://Bullet.tscn")
 
 func _ready():
-	position.x = get_viewport_rect().size.x / 2
-	position.y = (get_viewport_rect().size.y / 4) * 3
+	if "battle" in $"..".name:
+		position.x = get_viewport_rect().size.x / 2
+		position.y = (get_viewport_rect().size.y / 4) * 3
+	
+	else:
+		if root.player_position != null:
+			position = root.player_position
 
 func _physics_process(delta):
 	var xAxis = Input.get_axis("left", "right")

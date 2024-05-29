@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5jihpn0x6m5q"]
+
+[ext_resource type="Script" path="res://overworld_enemy.gd" id="1_q65xw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_golfs"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_q65xw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_golfs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

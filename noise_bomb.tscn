@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://54udojlji0pr"]
+
+[ext_resource type="Texture2D" uid="uid://4345hruxdgxr" path="res://Images/noisebomb_00-export.png" id="1_fu7bx"]
+[ext_resource type="Script" path="res://noiseBomb.gd" id="2_8knd6"]
+[ext_resource type="Script" path="res://copy_parent_stats.gd" id="3_fwcii"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_js3nu"]
+radius = 64.0
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_fu7bx")
+script = ExtResource("2_8knd6")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+script = ExtResource("3_fwcii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_js3nu")
+
+[node name="explode" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="die" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="explode" to="." method="_on_explode_timeout"]
+[connection signal="timeout" from="die" to="." method="_on_die_timeout"]

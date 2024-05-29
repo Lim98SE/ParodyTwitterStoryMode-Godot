@@ -3,8 +3,13 @@ extends Node2D
 var current_area = null
 var name_tweening = false
 @onready var name_label = $UI/CanvasLayer/Label
-@export var buddies = ["peter", "doomslayer"]
+@export var buddies = ["engie", "noise"]
+var battlescene = null
 var fade = preload("res://Fade.tscn")
+var previous
+var scene = null
+var last_battle = null
+var player_position = null
 
 func load_scene(arg):
 	print(get_children())
@@ -12,13 +17,23 @@ func load_scene(arg):
 		remove_child($Area)
 	
 	if FileAccess.file_exists(arg):
-		var scene = load(arg)
+		previous = scene
+		scene = load(arg)
 		add_child(scene.instantiate())
 	
 	else:
 		print(arg, " does not exist")
 	
 	$Fade.fadeOut()
+
+func back():
+	if get_node_or_null("Area") != null:
+		remove_child($Area)
+	
+	if previous != null:
+		scene = previous
+		add_child(scene.instantiate())
+		$Fade.fadeOut()
 
 func change_song(path):
 	$Music.stop()
@@ -29,7 +44,8 @@ func change_song(path):
 func _ready():
 	add_child(fade.instantiate())
 	name_label.position.y = -100
-	load_scene("res://Battle.tscn")
+	
+	load_scene("res://Area1.tscn")
 
 func done_tweening():
 	name_label.get_node("Timer").start()

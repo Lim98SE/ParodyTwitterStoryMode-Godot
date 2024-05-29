@@ -1,19 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://buipylflmsudi"]
+[gd_scene load_steps=15 format=3 uid="uid://buipylflmsudi"]
 
 [ext_resource type="Script" path="res://area_propreties.gd" id="1_a3vso"]
+[ext_resource type="Script" path="res://battle.gd" id="1_t0rgo"]
 [ext_resource type="PackedScene" uid="uid://cjlglyuwew78f" path="res://Player_Battle.tscn" id="4_dfmmc"]
 [ext_resource type="Script" path="res://buddy_manager.gd" id="5_7uq7k"]
 [ext_resource type="AudioStream" uid="uid://cug36uptxuf0l" path="res://SFX/explosion(2).wav" id="5_hsy8p"]
-[ext_resource type="PackedScene" uid="uid://0xgmhgxe4cj" path="res://still_enemy.tscn" id="6_3qjk5"]
 [ext_resource type="Script" path="res://healthbar.gd" id="6_7lygb"]
 [ext_resource type="Script" path="res://buddy_images.gd" id="6_y2mfn"]
 [ext_resource type="Texture2D" uid="uid://c6x5rjsox0l" path="res://Images/Buddies/peter.png" id="7_ufqsi"]
 [ext_resource type="Script" path="res://fadeOut.gd" id="8_nfy54"]
+[ext_resource type="AudioStream" uid="uid://bhx7nh81bhucy" path="res://SFX/pickupCoin(1).wav" id="10_8xhhq"]
+[ext_resource type="FontFile" uid="uid://doxpjppilrvgp" path="res://Pixellari.ttf" id="12_vi15y"]
+[ext_resource type="AudioStream" uid="uid://cou8gttadbsf7" path="res://SFX/29-Act Cleared.mp3" id="13_pf1du"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jg45t"]
 size = Vector2(200, 8)
 
+[sub_resource type="LabelSettings" id="LabelSettings_pevdv"]
+font = ExtResource("12_vi15y")
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.498039)
+shadow_offset = Vector2(16, 16)
+
 [node name="Area" type="Node2D"]
+script = ExtResource("1_t0rgo")
 
 [node name="AreaPropreties" type="Node2D" parent="."]
 script = ExtResource("1_a3vso")
@@ -31,35 +43,29 @@ enableFiring = true
 [node name="BuddyManager" type="Node2D" parent="."]
 script = ExtResource("5_7uq7k")
 
-[node name="StillEnemy" parent="." instance=ExtResource("6_3qjk5")]
-position = Vector2(35, 30)
-
-[node name="StillEnemy2" parent="." instance=ExtResource("6_3qjk5")]
-position = Vector2(604, 28)
-
 [node name="Die" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_hsy8p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_y2mfn")
 
-[node name="Healthbar" type="Sprite2D" parent="CanvasLayer/Control"]
+[node name="Healthbar" type="Sprite2D" parent="CanvasLayer/UI"]
 position = Vector2(6, 348)
 texture = SubResource("PlaceholderTexture2D_jg45t")
 centered = false
 script = ExtResource("6_7lygb")
 
-[node name="ActiveBuddy" type="Sprite2D" parent="CanvasLayer/Control"]
+[node name="ActiveBuddy" type="Sprite2D" parent="CanvasLayer/UI"]
 position = Vector2(604, 308)
 texture = ExtResource("7_ufqsi")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ActiveBuddy"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/ActiveBuddy"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -72,6 +78,34 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.482353)
 script = ExtResource("8_nfy54")
 
-[node name="PassiveBuddy" type="Sprite2D" parent="CanvasLayer/Control"]
+[node name="ready" type="AudioStreamPlayer" parent="CanvasLayer/UI/ActiveBuddy"]
+stream = ExtResource("10_8xhhq")
+
+[node name="PassiveBuddy" type="Sprite2D" parent="CanvasLayer/UI"]
 position = Vector2(536, 308)
 texture = ExtResource("7_ufqsi")
+
+[node name="YouWin" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/YouWin"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+text = "Battle Won!"
+label_settings = SubResource("LabelSettings_pevdv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinDelay" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="WinSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_pf1du")
+
+[connection signal="timeout" from="WinDelay" to="." method="_on_win_delay_timeout"]

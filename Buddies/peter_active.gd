@@ -5,8 +5,13 @@ extends Node
 var original_fire_rate
 var original_speed
 var triggered = false
-var length = 1
+var length = 0.5
 var timeSinceTrigger = 0
+var sfx = load("res://SFX/petah.mp3")
+
+func _ready():
+	$actionCooldown.wait_time = 3
+	$actionSfx.stream = sfx
 
 func _process(delta):
 	if triggered:
@@ -19,6 +24,7 @@ func _process(delta):
 		$actionCooldown.start()
 		
 	if Input.is_action_just_pressed("action") and $actionCooldown.time_left == 0 and not triggered:
+		$actionSfx.play()
 		timeSinceTrigger = 0
 		original_fire_rate = player.get_node("FireCooldown").wait_time
 		original_speed = player.speed
